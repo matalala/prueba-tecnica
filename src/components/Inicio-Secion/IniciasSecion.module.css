@@ -1,0 +1,47 @@
+.contenedor{
+   display: flex;
+   border: solid 2px black;
+   margin: 2%;
+}
+.botonCierre{
+    width: 2%;
+    height: 2%;
+    font-size: medium;
+    border: none;
+    margin: 2%;
+    background-color: white;
+    padding: 2px;
+
+}
+.botonCierre:hover{
+    background-color: blueviolet;
+    color: white;
+}
+.contenIS{
+
+    border-right: solid 2px black;
+    padding: 2%;
+}
+.contemCC{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+}
+.contemCC button{
+    border: none;
+    font-size: 30px;
+    padding: 5px 80px;
+    background-color:blueviolet;
+    color: white;
+    cursor: pointer;
+
+}
+.contemCC button:hover{
+
+    background-color:rgb(68, 9, 123);
+    color: white;
+
+}

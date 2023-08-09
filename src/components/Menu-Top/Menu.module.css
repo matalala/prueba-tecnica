@@ -1,0 +1,91 @@
+.contenedor{
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-shadow: 0 0 15px #000000a8;
+}
+.botonCategoria{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px;
+}
+.botonCategoria:hover{
+    background-color: blueviolet;
+    color: white;
+}
+.botonCategoria span{
+    font-size:larger;
+    margin: 5px;
+}
+
+.contenedorSuperior{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 10%;
+    align-items: center;
+}
+.contenedorInferior{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.usuarioMenu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+.img{
+    width: 50px;
+    height: 50px;
+}
+.buscadorMenu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.buscadorMenu input{
+    margin: 10px;
+    height: 20px;
+}
+.buscadorMenu img:hover{
+ cursor: pointer;
+}
+
+
+.contenedorInferior ul,ol{
+    list-style: none;
+}
+.contenedorInferior a{
+   text-decoration: none;
+}
+.contenedorlista li{
+display: flex;
+align-items: center;
+}
+.contenedorLogeo{
+margin: 10px;
+}
+.contenedorLogeo a{
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.contenedorLogeo a:hover{
+    text-decoration: none;
+    color: white;
+    background-color:blueviolet;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.contenedor{
+    border: solid 2px black;
+    margin: 5px 2px;
+    padding: 10px;
+}
+.contenedorInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.botonCrearcuenta{
+    margin: 10px;
+    border: none;
+    font-size: 30px;
+    padding: 5px 80px;
+    background-color:blueviolet;
+    color: white;
+    cursor: pointer;
+}
+.botonCrearcuenta:hover{
+    background-color:rgb(68, 9, 123);
+    color: white;
+}
+.botonCierre{
+    width: 2%;
+    height: 2%;
+    font-size:larger;
+    border: none;
+    margin: 2%;
+    background-color: white;
+    padding: 2px;
+
+}
+.botonCierre:hover{
+    background-color: blueviolet;
+    color: white;
+}

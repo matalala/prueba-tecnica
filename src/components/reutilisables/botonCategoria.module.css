@@ -1,0 +1,10 @@
+.categoria{
+    margin: 5px;
+    padding: 5px 0px 5px 5px;
+    left: 0%;
+}
+.categoria:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+    color: white;
+}

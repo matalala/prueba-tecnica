@@ -1,0 +1,9 @@
+.contenedor  {
+    position:absolute;
+    display: block;
+    top:230px;
+    left: 3%;
+    box-shadow: 0 0 15px #000000a8;
+    background-color: #ffffff;
+    padding: 0%;
+}

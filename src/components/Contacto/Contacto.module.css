@@ -1,0 +1,26 @@
+.contenedor{
+    background-color: #0101a1;
+    padding: 0.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 20px;
+    
+}
+.link{
+    color: white;
+    margin: 1%;
+    margin-right: 10%;
+    height: 100%;
+    max-height: fit-content;
+}
+.contenContacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenAuda{
+    display: flex;
+    flex-direction: row;
+    margin-right: 2%;
+}

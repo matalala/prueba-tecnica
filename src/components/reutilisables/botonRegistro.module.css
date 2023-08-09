@@ -1,0 +1,17 @@
+.selecionado{
+    border: solid 2px green;
+    margin: 10px;
+    >img{
+        width: 60px;
+        height: 50px;
+    }
+}
+
+.boton{
+    margin: 10px;
+}
+.boton img{
+    width: 60px;
+    height: 50px;
+
+}
