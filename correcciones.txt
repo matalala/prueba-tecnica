@@ -1,8 +1,0 @@
-#ir por experiencias(cada perfil)
--nombre en las vareables(usar todo en ingles)
-- -correjir registro 
--terminar rutas protejidas
--corregir nombres de componentes y rutas
-- -mantener sesion en todas las rutas(poner consulta en app.js)
-- -componentes reutilisables
--db=https://www.npmjs.com/package/node-json-db

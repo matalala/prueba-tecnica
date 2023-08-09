@@ -13,12 +13,22 @@ import { useEffect } from 'react'
 import { logeo } from './action'
 
 function App() {
+  //propiedades del auth0
   const { isAuthenticated, user,logout } = useAuth0()
+  //estado de redux que tiene las vareables de usuario
   const use = useSelector((state) => state.users)
+  //estado de redux que tiene el error de la db
   const error = useSelector((state) => state.error)
   const dispatch = useDispatch()
+  //cada ves que se carga el componente y se actualisa 
   useEffect(() => {
+    //validamos si realmente esta autentificado el usuario 
+    //pero que el estado de redux esta vacio
       if (isAuthenticated && user && user.email && use && !use.email) {
+        //consultamos si no hay msg de error
+        //si hay un msg significa que el usuario no existe
+        //por lo tanto deslogeamos de auth0
+        //caso contrario despachamos la accion de logeo
         if(error!=""){
           alert(error)
           logout()
@@ -30,9 +40,11 @@ function App() {
       }
     
   }, [use, isAuthenticated, dispatch, user])
-  
+  //estado de redux que tiene las variables del usuario
   const thisUser = useSelector((state) => state.users)
   let routes;
+  //cree un switch para validar el perfil del usuario 
+  //y asi evitar que un perfil si el permiso adecuado entre a una ruta que no le corresponda
   switch (thisUser.perfil) {
     case 'admin':
       routes = (

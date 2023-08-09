@@ -11,34 +11,49 @@ import { BotonRegistro } from '../reutilisables/botonRegistro'
 import style from './Registro.module.css'
 
 export const Registro = () => {
+    //propiedades de aoth0
     const {loginWithPopup,user,isAuthenticated}=useAuth0()
     const navigate = useNavigate()
     const dispatch=useDispatch()
+    //datos de usuario
     const thisUser=useSelector((state)=>state.users)
+    //estado para registrar  el usuario
     const [Tipo, setTipo]=useState({
         tipo:"",
         email:"",
         foto:""
     })
-    const [abilitado, setabilitado]=useState(true)
+    //estado para habilitar el boton de crear la cuenta
+    const [habilitado, sethhabilitado]=useState(true)
+    //funcion que guerda en el estado el perfil "tipo" en el estado 
+    //y habilita el boton de crear cuenta
     const settipo=(e)=>{
         setTipo({...Tipo,tipo:e.target.name})
-        setabilitado(false)
+        sethhabilitado(false)
     }
-    
+    //consultamos si en el estado de redux ya tenemos la variable de email
+    //si es asi nos rediderciona al home
     if(thisUser.email){
         navigate('/')
     }
+    //validacion luego de que cargue la pagina 
+    //y cuando hay actualisacion de alguna parte del arbol espesificada 
     useEffect(()=>{
+        //validamos si esta logeado y el estado del objeto a crear usuario no tiene mail
+        //en ese caso cargamos el objeto a crear 
         if(isAuthenticated&&!Tipo.email)
         {
             setTipo({...Tipo,email:user.email,foto:user.picture})
         }
+        //en caso de que el objeto este cargado 
+        //despachamos la acion de registro
         if(Tipo.email&&Tipo.tipo&&Tipo.foto){
             dispatch(registro(Tipo))
         }
        
     },[Tipo,isAuthenticated,user])
+    //funcion   para ejecutar el registro en auth0
+    //validando que el perfil "tipo" esta previamente seleccionado
     const createcuenta=()=>{
         if(Tipo.tipo){
             loginWithPopup()
@@ -72,7 +87,7 @@ export const Registro = () => {
                 img={veterinaria}
                 />
                 </div>
-                <button className={style.botonCrearcuenta} disabled={abilitado} onClick={createcuenta}>Crea tu cuenta</button>
+                <button className={style.botonCrearcuenta} disabled={habilitado} onClick={createcuenta}>Crea tu cuenta</button>
             </div>
         </div>
     )

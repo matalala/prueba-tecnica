@@ -1,9 +1,10 @@
 import React from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { BotonCategorias } from "../reutilisables/botonCategorias"
 import style from './Categorias.module.css'
+
+//objeto quue simula las categorias dependiendo de si permiso
 const categorias =
 {
     admin: [
@@ -44,13 +45,17 @@ const categorias =
 }
 
 export const Categorias = () => {
+    //estado de redux donde se encuentran las variables de usuario
     const user = useSelector((state) => state.users)
+    //vaariable para validar si el usuario esta logeado con auth0
     const { isAuthenticated } = useAuth0()
     
     return (
         <ul  className={style.contenedor}>
+            {/* validamos si el usuario esta logeado  */}
             {isAuthenticated ?
                 <>
+                {/* en caso de que este validado como cliente */}
                     {user.perfil === "cliente" ?
                      
                         categorias?.cliente.map((e,i) => {
@@ -61,6 +66,7 @@ export const Categorias = () => {
                             )
                         })
                     : <></>}
+                    {/* en caso de que este validado como veterinaria */}
                     {user.perfil === "veterinaria" ? 
                         categorias?.veterinaria.map((e,i) => {
                            return (
@@ -70,6 +76,7 @@ export const Categorias = () => {
                         )
                         })
                    : <></>}
+                   {/* en caso de que este validado como profecional */}
                     {user.perfil === "profecional" ? 
                         categorias?.profecional.map((e,i) => {
                             return (
@@ -79,6 +86,7 @@ export const Categorias = () => {
                             )
                         })
                     : <></>}
+                    {/* en caso de que ste validado como administrador */}
                     {user.perfil === "admin" ? 
                         categorias?.admin.map((e,i) => {
                             return (
@@ -88,7 +96,7 @@ export const Categorias = () => {
                      : <></>}
                 </>
                 :
-                
+                //en caso de que no esta auntentificado con auth0 (es invitado)
                     categorias?.invitado.map((e,i) => {
                         return (
                             <BotonCategorias  key={i+e.name} name={e.name}  text={e.textEsp} />

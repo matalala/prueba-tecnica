@@ -6,23 +6,25 @@ export function logeo(email) {
         if (email.length) {
            //consulta a la api 
            try {
+            //creando header de la consulta
             let headersList = {
                 "Accept": "*/*",
                 "Content-Type": "application/json" 
                }
-               
+               //objeto que pasapos a la consulta
                let bodyContent = JSON.stringify({
                  email
                });
-               
+               //opciones de la consulta
                let reqOptions = {
                  url: "http://localhost:3001/login",
                  method: "POST",
                  headers: headersList,
                  data: bodyContent,
                }
-               
+               //consulta a la api 
                let response = await axios.request(reqOptions);
+               //validacion de la consulta
                if(!response.data.data){
                 return dispatch({type:"DESLOGEO",payload:response.data.msg})
             }else{
@@ -59,9 +61,8 @@ export function registro(user) {
                    }
                    
                    let response = await axios.request(reqOptions);
-                   console.log(response.data);
                    if(!response.data.data){
-                    //return dispatch({type:"DESLOGEO",payload:response.data.msg})
+                    return dispatch({type:"DESLOGEO",payload:response.data.msg})
                 }else{
                     return dispatch({type:"REGISTRO",payload:response.data.data[0]})
                 }

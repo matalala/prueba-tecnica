@@ -12,8 +12,11 @@ import style from './Menu.module.css'
 import { useNavigate } from "react-router-dom"
 
 export const MenuTop = () => {
+    //propiedades de auth0
     const { logout, isAuthenticated, user } = useAuth0()
+    //datos de usuario de redux
     const use = useSelector((state) => state.users)
+    //estado para validar abrir el menu de categorias
     const [categoria, setcategotia] = useState(false)
     const navigate =useNavigate()
     return (
@@ -61,6 +64,9 @@ export const MenuTop = () => {
                 </ul>
                 <div className={style.contenedorLogeo}>
                     <a onClick={()=>{navigate('/')}}>Home</a>
+
+                    {/* creamos un condicional validando si esta autentificado 
+                    para mostrar el boton de logeo o logout  */}
                     {isAuthenticated ?
                         <a onClick={() => { logout() }}>Cerrar Sesion</a> :
                         <a href="/iniciosecion">Iniciar Sesion</a>}
