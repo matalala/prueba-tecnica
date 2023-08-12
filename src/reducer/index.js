@@ -21,12 +21,12 @@ function rootReducer(state = initialState, action)
         return{
             ...state,
             users: {
-                id:action.payload._ID,
+                id:action.payload.id,
                 email:action.payload.email,
-                perfil:action.payload.perfil,
+                perfil:action.payload.tipo_Usuario,
                 foto:action.payload.foto,
-                familias:action.payload.familia,
-                patentes:action.payload.patente
+                familias:action.payload.patentesIndividuales_Asignadas,
+                patentes:action.payload.patentesPorFamilia_Asignadas  
             }
         }
          //en caso de que el registro sea correcto modificamos el users con los datos del usuario
@@ -34,12 +34,7 @@ function rootReducer(state = initialState, action)
         return{
             ...state,
              users: {
-              id:action.payload._ID,
-              email:action.payload.email,
-              perfil:action.payload.perfil,
-              foto:action.payload.foto,
-              familias:action.payload.familia,
-              patentes:action.payload.patente
+              msg:action.payload
             }
         }
 

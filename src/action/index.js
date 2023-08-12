@@ -17,7 +17,7 @@ export function logeo(email) {
                });
                //opciones de la consulta
                let reqOptions = {
-                 url: "http://localhost:3001/login",
+                 url: "https://localhost:7113/api/Usuario/LoginPerfilByEmail",
                  method: "POST",
                  headers: headersList,
                  data: bodyContent,
@@ -25,13 +25,13 @@ export function logeo(email) {
                //consulta a la api 
                let response = await axios.request(reqOptions);
                //validacion de la consulta
-               if(!response.data.data){
-                return dispatch({type:"DESLOGEO",payload:response.data.msg})
-            }else{
-                return dispatch({type:"LOGEO",payload:response.data.data[0]})
-            }
+               console.log(response)
+           
+             return dispatch({type:"LOGEO",payload:response.data[0]})
+          
            } catch (error) {
             console.log(error)
+            return dispatch({type:"DESLOGEO",payload:"error"})
            }
            
             
@@ -41,7 +41,7 @@ export function logeo(email) {
 
 export function registro(user) {
     return async function (dispatch) {
-        if (user.tipo) {
+        if (user.email) {
             //consulta a la api 
             try {
                 let headersList = {
@@ -50,24 +50,23 @@ export function registro(user) {
                    }
                    
                    let bodyContent = JSON.stringify({
-                     ...user
+                     email:user.email,
+                     id_tipo_Usuario:user.tipo
                    });
                    
                    let reqOptions = {
-                     url: "http://localhost:3001/registro",
+                     url: "https://localhost:7113/api/Usuario/RegistrarUsuario",
                      method: "POST",
                      headers: headersList,
                      data: bodyContent,
                    }
                    
                    let response = await axios.request(reqOptions);
-                   if(!response.data.data){
-                    return dispatch({type:"DESLOGEO",payload:response.data.msg})
-                }else{
-                    return dispatch({type:"REGISTRO",payload:response.data.data[0]})
-                }
+                   console.log(response)
+                    return dispatch({type:"REGISTRO",payload:response.data})
                } catch (error) {
                 console.log(error)
+                return dispatch({type:"DESLOGEO",payload:"error"})
                }
         }
     }

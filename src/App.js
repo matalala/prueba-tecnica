@@ -35,7 +35,7 @@ function App() {
 
         }else
         {
-          dispatch(logeo(user.email))
+          //dispatch(logeo(user.email))
         }
       }
     
@@ -46,7 +46,7 @@ function App() {
   //cree un switch para validar el perfil del usuario 
   //y asi evitar que un perfil si el permiso adecuado entre a una ruta que no le corresponda
   switch (thisUser.perfil) {
-    case 'admin':
+    case 'ADMINISTRADOR':
       routes = (
         <>
         <MenuTop />
@@ -64,7 +64,7 @@ function App() {
         </>
       )
       break;
-      case "cliente":
+      case "CLIENTE":
         routes = (
           <>
           <MenuTop />
@@ -81,7 +81,7 @@ function App() {
         )
         
         break; 
-    case "profecional":
+    case "PROFESIONAL":
       routes = (
       <>
       <MenuTop />
@@ -95,7 +95,7 @@ function App() {
       </Routes>
       </>)
     break;
-    case "veterinaria":
+    case "VETERINARIA":
       routes = (
         <>
         <MenuTop />

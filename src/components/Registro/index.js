@@ -20,21 +20,26 @@ export const Registro = () => {
     //estado para registrar  el usuario
     const [Tipo, setTipo]=useState({
         tipo:"",
-        email:"",
-        foto:""
+        email:""
     })
     //estado para habilitar el boton de crear la cuenta
     const [habilitado, sethhabilitado]=useState(true)
     //funcion que guerda en el estado el perfil "tipo" en el estado 
     //y habilita el boton de crear cuenta
     const settipo=(e)=>{
-        setTipo({...Tipo,tipo:e.target.name})
+        let tipoUsuario;
+        
+            if(e.target.name==='cliente')tipoUsuario=1
+            if(e.target.name==='profecional')tipoUsuario=2
+            if(e.target.name==='veterinaria')tipoUsuario=3
+        
+        setTipo({...Tipo,tipo:tipoUsuario})
         sethhabilitado(false)
     }
     //consultamos si en el estado de redux ya tenemos la variable de email
     //si es asi nos rediderciona al home
-    if(thisUser.email){
-        navigate('/')
+    if(thisUser.msg){
+        navigate('/iniciosecion')
     }
     //validacion luego de que cargue la pagina 
     //y cuando hay actualisacion de alguna parte del arbol espesificada 
@@ -43,11 +48,11 @@ export const Registro = () => {
         //en ese caso cargamos el objeto a crear 
         if(isAuthenticated&&!Tipo.email)
         {
-            setTipo({...Tipo,email:user.email,foto:user.picture})
+            setTipo({...Tipo,email:user.email})
         }
         //en caso de que el objeto este cargado 
         //despachamos la acion de registro
-        if(Tipo.email&&Tipo.tipo&&Tipo.foto){
+        if(Tipo.email&&Tipo.tipo){
             dispatch(registro(Tipo))
         }
        

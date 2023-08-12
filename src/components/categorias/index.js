@@ -56,7 +56,7 @@ export const Categorias = () => {
             {isAuthenticated ?
                 <>
                 {/* en caso de que este validado como cliente */}
-                    {user.perfil === "cliente" ?
+                    {user.perfil === "CLIENTE" ?
                      
                         categorias?.cliente.map((e,i) => {
                             return (
@@ -67,7 +67,7 @@ export const Categorias = () => {
                         })
                     : <></>}
                     {/* en caso de que este validado como veterinaria */}
-                    {user.perfil === "veterinaria" ? 
+                    {user.perfil === "VETERINARIA" ? 
                         categorias?.veterinaria.map((e,i) => {
                            return (
                            
@@ -77,7 +77,7 @@ export const Categorias = () => {
                         })
                    : <></>}
                    {/* en caso de que este validado como profecional */}
-                    {user.perfil === "profecional" ? 
+                    {user.perfil === "PROFESIONAL" ? 
                         categorias?.profecional.map((e,i) => {
                             return (
                                 
@@ -87,7 +87,7 @@ export const Categorias = () => {
                         })
                     : <></>}
                     {/* en caso de que ste validado como administrador */}
-                    {user.perfil === "admin" ? 
+                    {user.perfil === "ADMINISTRADOR" ? 
                         categorias?.admin.map((e,i) => {
                             return (
                                 <BotonCategorias  key={i+e.name} name={e.name}  text={e.textEsp} />
